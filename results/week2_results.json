@@ -1,0 +1,309 @@
+{
+  "audit": {
+    "enrolment_rows": 5075,
+    "weekly_rows": 60000,
+    "exact_duplicate_rows": 25,
+    "unique_centre_spellings": 24,
+    "unique_course_spellings": 20,
+    "attended_missing": 1193,
+    "attended_more_than_held": 110,
+    "scores_outside_0_100": 84,
+    "negative_days_late": 192,
+    "missing_pct": {
+      "sessions_held": 0.0,
+      "sessions_attended": 1.99,
+      "assignments_submitted": 0.0,
+      "days_late": 16.32,
+      "assessment_score": 51.91
+    }
+  },
+  "anomaly_counts": {
+    "none": 4800,
+    "missing_attendance_block": 60,
+    "active_dropout": 50,
+    "duplicate_enrolment": 50,
+    "score_jump": 40
+  },
+  "cleaning": {
+    "centre_spellings_after": 6,
+    "course_spellings_after": 5,
+    "unmapped_text": 0,
+    "exact_duplicates_dropped": 25,
+    "duplicate_enrolments_flagged": 50,
+    "invalid_attended_set_missing": 110,
+    "invalid_scores_set_missing": 84,
+    "invalid_days_late_set_missing": 192,
+    "small_gap_cells_filled": 1006,
+    "block_gap_cells_kept": 297,
+    "learners_with_missing_block": 60
+  },
+  "audit_after": {
+    "attended_missing": 297,
+    "missing_pct": {
+      "sessions_held": 0.0,
+      "assignments_submitted": 0.0,
+      "days_late": 16.64,
+      "assessment_score": 52.05,
+      "sessions_attended": 0.5
+    }
+  },
+  "outliers_score": {
+    "n": 28769,
+    "iqr_1_5": 94,
+    "zscore_3": 38,
+    "mad_3_5": 5
+  },
+  "outliers_days_late": {
+    "n": 50018,
+    "iqr_1_5": 3732,
+    "zscore_3": 901,
+    "mad_3_5": 3105
+  },
+  "skew": {
+    "days_late_raw": 4.782900821486838,
+    "days_late_log1p": 0.9868125387391193
+  },
+  "days_late_summary": {
+    "median": 1.2,
+    "mean": 1.8288196249350233,
+    "max": 54.4
+  },
+  "n_features_built": 21,
+  "leakage_check_passed": true,
+  "selection": {
+    "dropped_for_correlation": [
+      [
+        "peer_attendance_z",
+        "attendance_rate",
+        0.9156059164134019
+      ],
+      [
+        "longest_missing_run",
+        "missing_weeks",
+        1.0
+      ],
+      [
+        "peer_score_z",
+        "score_mean",
+        0.9607776581096542
+      ]
+    ],
+    "mutual_information": {
+      "attendance_rate": 0.1414,
+      "score_change": 0.117,
+      "dup_enrolment": 0.109,
+      "missing_weeks": 0.1013,
+      "active_but_inactive": 0.092,
+      "weeks_since_last_attendance": 0.0873,
+      "days_late_log": 0.0586,
+      "submit_rate": 0.0365,
+      "course_Class_12_Boards": 0.0297,
+      "rare_combo": 0.0282,
+      "rate_dev_min": 0.0241,
+      "course_Class_10_Boards": 0.0218,
+      "score_mean": 0.0203,
+      "centre_freq": 0.0095,
+      "course_Spoken_English": 0.0031,
+      "status_dropped": 0.0,
+      "course_JEE_Foundation": 0.0,
+      "course_NEET_Foundation": 0.0
+    },
+    "selected": [
+      "attendance_rate",
+      "score_change",
+      "dup_enrolment",
+      "missing_weeks",
+      "active_but_inactive",
+      "weeks_since_last_attendance",
+      "days_late_log",
+      "submit_rate",
+      "course_Class_12_Boards",
+      "rare_combo"
+    ],
+    "not_selected": [
+      "score_mean",
+      "rate_dev_min",
+      "status_dropped",
+      "centre_freq",
+      "course_Class_10_Boards",
+      "course_JEE_Foundation",
+      "course_NEET_Foundation",
+      "course_Spoken_English"
+    ],
+    "labelled_sample": 300,
+    "evaluated_on": 4700
+  },
+  "detector": {
+    "raw": {
+      "precision_top1": [
+        0.4170212765957446,
+        0.025531914893617016
+      ],
+      "precision_top5": [
+        0.1523404255319149,
+        0.0017021276595744705
+      ],
+      "roc_auc": [
+        0.7373649836065573,
+        0.004281254660054911
+      ]
+    },
+    "all_engineered": {
+      "precision_top1": [
+        0.5361702127659573,
+        0.07296352425311595
+      ],
+      "precision_top5": [
+        0.1931914893617021,
+        0.026176266381667573
+      ],
+      "roc_auc": [
+        0.9352914535519125,
+        0.005102896260894878
+      ]
+    },
+    "selected": {
+      "precision_top1": [
+        0.7021276595744681,
+        0.0
+      ],
+      "precision_top5": [
+        0.21531914893617018,
+        0.015128841561388238
+      ],
+      "roc_auc": [
+        0.9484132021857924,
+        0.0058711441605948005
+      ]
+    }
+  },
+  "n_raw_features": 4,
+  "caught_in_top5": {
+    "missing_attendance_block": [
+      8,
+      39
+    ],
+    "active_dropout": [
+      33,
+      33
+    ],
+    "duplicate_enrolment": [
+      6,
+      28
+    ],
+    "score_jump": [
+      6,
+      25
+    ]
+  },
+  "scaling_uci": {
+    "SVM (RBF)": [
+      0.9138953578636858,
+      0.9771619313771154
+    ],
+    "KNN": [
+      0.9350100916006833,
+      0.9630957925787922
+    ],
+    "Logistic Regression": [
+      0.9543393882937432,
+      0.9736686849868033
+    ]
+  },
+  "uci_feature_ranges": {
+    "smallest_range_feature": 0.028945199999999997,
+    "largest_range_feature": 4068.8
+  },
+  "examples": {
+    "active_dropout": {
+      "learner_id": "L00197",
+      "attended_raw": [
+        3,
+        1,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "held": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "features": {
+        "attendance_rate": 0.19,
+        "longest_missing_run": 0.0,
+        "weeks_since_last_attendance": 9.0,
+        "active_but_inactive": 1.0,
+        "rate_dev_min": -0.78,
+        "peer_attendance_z": -3.23,
+        "score_change": 0.0,
+        "dup_enrolment": 0.0
+      }
+    },
+    "missing_attendance_block": {
+      "learner_id": "L00298",
+      "attended_raw": [
+        3,
+        1,
+        3,
+        0,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        2,
+        3
+      ],
+      "held": [
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3
+      ],
+      "features": {
+        "attendance_rate": 0.69,
+        "longest_missing_run": 5.0,
+        "weeks_since_last_attendance": 0.0,
+        "active_but_inactive": 0.0,
+        "rate_dev_min": -0.83,
+        "peer_attendance_z": -0.87,
+        "score_change": 3.76,
+        "dup_enrolment": 0.0
+      }
+    }
+  },
+  "typical_features": {
+    "attendance_rate": 0.81,
+    "longest_missing_run": 0.0,
+    "weeks_since_last_attendance": 0.0,
+    "rate_dev_min": -0.42,
+    "peer_attendance_z": 0.0,
+    "score_change": 0.0
+  }
+}
